@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:29 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/09 16:03:04 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/16 17:24:19 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,22 @@ void	ft_draw_square(t_data img, int color)
 		ft_mlx_pixel_put(&img, 0, y, color);
 }
 
-int	ft_key_hook(int keycode, t_vars *vars)
+int	ft_key_hook(int keycode, t_data *vars)
 {
 	if (keycode == 53)
 		ft_close(keycode, vars);
-	if (keycode == 13)
-		ft_advance();
-	else if (keycode == 0)
-		ft_left();
-	else if (keycode == 1)
-		ft_bot();
-	else if (leycode == 2)
-		ft_right();
+	// if (keycode == 13)
+	// 	ft_advance();
+	// else if (keycode == 0)
+	// 	ft_left();
+	// else if (keycode == 1)
+	// 	ft_bot();
+	// else if (keycode == 2)
+	// 	ft_right();
 	return (0);
 }
 
-int	ft_close(int keycode, t_vars *vars)
+int	ft_close(int keycode, t_data *vars)
 {
 	mlx_destroy_window(vars->mlx, vars->mlx_win);
 	return (0);
