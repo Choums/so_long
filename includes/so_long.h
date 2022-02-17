@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/16 17:49:37 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/17 14:42:34 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "../libft/libft.h"
-# include "get_next_line.h"
+# include "../srcs/get_next_line/get_next_line.h"
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -38,9 +38,26 @@ typedef struct s_data {
 	void	*mlx_win;
 }	t_data;
 
+typedef struct s_map {
+	size_t	x;
+	size_t	y;
+	char	**map;
+}	t_map;
+
+typedef struct s_char {
+	size_t	x;
+	size_t	y;
+	int		item;
+}	t_char;
+
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	ft_draw_square(t_data img, int color);
 int		ft_key_hook(int keycode, t_data *vars);
 int		ft_close(int keycode, t_data *var);
+
+void	ft_err(char *msg);
+
+void	ft_get_map(int map_fd, t_map *pos);
+int		ft_check_wall(t_map *pos);
 
 #endif

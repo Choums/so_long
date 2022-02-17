@@ -6,11 +6,11 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 16:47:18 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/16 17:49:02 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/17 11:55:26 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/get_next_line.h"
+#include "get_next_line.h"
 
 char	*ft_chr(const char *s, int c)
 {
