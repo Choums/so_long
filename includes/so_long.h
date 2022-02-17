@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/17 14:42:34 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/02/17 14:55:40 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_data {
 typedef struct s_map {
 	size_t	x;
 	size_t	y;
+	int		cons;
 	char	**map;
 }	t_map;
 
@@ -58,6 +59,6 @@ int		ft_close(int keycode, t_data *var);
 void	ft_err(char *msg);
 
 void	ft_get_map(int map_fd, t_map *pos);
-int		ft_check_wall(t_map *pos);
+int		ft_check_map(t_map *pos);
 
 #endif
