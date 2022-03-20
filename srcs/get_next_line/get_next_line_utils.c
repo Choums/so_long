@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 16:47:18 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/17 11:55:26 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/20 14:57:36 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,5 +58,6 @@ char	*ft_join(char *rest, char const *brut)
 	while (brut[j])
 		one[i++] = brut[j++];
 	one[i] = '\0';
+	free(rest);
 	return (one);
 }

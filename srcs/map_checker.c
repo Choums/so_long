@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 18:20:11 by chaidel           #+#    #+#             */
-/*   Updated: 2022/02/17 15:06:13 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/20 15:54:16 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@ void	ft_get_map(int map_fd, t_map *pos)
 	char	*line;
 	char	*map;
 
-	map = "\0";
 	line = "\0";
+	map = "\0";
 	pos->y = 1;
 	line = get_next_line(map_fd);
-	map = ft_join(map, line);
+	map = ft_strjoin(map, line);
 	while (line)
 	{
+		free(line);
 		line = get_next_line(map_fd);
 		if (!line)
 			break;
@@ -68,7 +69,22 @@ int	ft_check_map(t_map *pos)
 		}
 		y++;
 	}
-	if (E != 1 || P != 1)
+	if (E != 1 || P != 1 || !pos->cons)
 		return (0);
 	return (1);
+}
+
+void	ft_free_map(t_map *pos)
+{
+	size_t	i;
+
+	i = 0;
+	while (pos->map[i])
+		i++;
+	while (i)
+	{
+		free(pos->map[i]);
+		i--;
+	}
+	free(pos->map);
 }

@@ -26,7 +26,7 @@ FRAME		=	-Lmlx -lmlx -framework OpenGL -framework AppKit
 
 ${NAME}:		${OBJS}
 				${MAKE} -C ./libft
-				${CC} ${CFLAGS} ${FRAME} ${OBJS} ${LIB} -o ${NAME}
+				${CC} ${CFLAGS} ${OBJS} ${LIB} -o ${NAME}
 
 all:			${NAME}
 
