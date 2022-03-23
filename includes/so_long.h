@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/20 14:03:59 by root             ###   ########.fr       */
+/*   Updated: 2022/03/23 16:24:00 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,13 @@ typedef struct s_map {
 	char	**map;
 }	t_map;
 
-typedef struct s_char {
+typedef struct s_pos {
 	size_t	x;
 	size_t	y;
+}	t_pos;
+
+typedef struct s_char {
+	t_pos	pos;	
 	int		item;
 }	t_char;
 

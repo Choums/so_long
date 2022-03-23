@@ -13,7 +13,7 @@ LIB			=	./libft/libft.a
 
 CC			=	clang
 
-CFLAGS		=	-fsanitize=address -g #-Wall -Wextra -Werror
+CFLAGS		=	-g #-Wall -Wextra -Werror
 
 .c.o:			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 

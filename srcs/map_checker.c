@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 18:20:11 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/20 15:54:16 by root             ###   ########.fr       */
+/*   Updated: 2022/03/23 16:21:38 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,7 @@ void	ft_free_map(t_map *pos)
 	i = 0;
 	while (pos->map[i])
 		i++;
-	while (i)
-	{
+	while (i--)
 		free(pos->map[i]);
-		i--;
-	}
 	free(pos->map);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:26 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/20 14:31:53 by root             ###   ########.fr       */
+/*   Updated: 2022/03/23 16:16:10 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ int	main(void)
 	ft_free_map(&pos);
 	// mlx_key_hook(vars.mlx_win, ft_key_hook, &vars);
 	// mlx_loop(vars.mlx);
+	system("leaks so_long");
 	return (0);
 }
