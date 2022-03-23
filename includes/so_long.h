@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/23 16:24:00 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/23 18:16:02 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ typedef struct s_pos {
 }	t_pos;
 
 typedef struct s_char {
-	t_pos	pos;	
+	t_pos	pos;
 	int		item;
 }	t_char;
 
