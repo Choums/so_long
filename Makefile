@@ -13,7 +13,7 @@ LIB			=	./libft/libft.a
 
 CC			=	clang
 
-CFLAGS		=	-g #-Wall -Wextra -Werror
+CFLAGS		=	-fsanitize=address -g #-Wall -Wextra -Werror
 
 .c.o:			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
@@ -22,11 +22,11 @@ CFLAGS		=	-g #-Wall -Wextra -Werror
 
 RM			=	rm -f
 
-FRAME		=	-Lmlx -lmlx -framework OpenGL -framework AppKit
+FRAME		=	-lmlx -framework OpenGL -framework AppKit
 
 ${NAME}:		${OBJS}
 				${MAKE} -C ./libft
-				${CC} ${CFLAGS} ${OBJS} ${LIB} -o ${NAME}
+				${CC} ${CFLAGS} ${FRAME} ${OBJS} ${LIB} -o ${NAME}
 
 all:			${NAME}
 
