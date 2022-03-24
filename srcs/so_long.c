@@ -37,13 +37,9 @@ int	main(void)
 	int	heo = 0;
 	while (wid < pos.x)
 	{
-		if ()
 		mlx_put_image_to_window(vars.mlx, vars.mlx_win, vars.img, wid * SQUARE, 0);
 		wid ++;
 	}
-	int i = -1;
-	while (++i < pos.y)
-		printf("%s\t| %d\n", pos.map[i], i);
 	ft_free_map(&pos);
 	mlx_key_hook(vars.mlx_win, ft_key_hook, &vars);
 	mlx_loop(vars.mlx);

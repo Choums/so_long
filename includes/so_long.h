@@ -29,6 +29,12 @@
 # define HEIGHT	1080
 # define SQUARE 64
 
+# define WALL "./set/wall_2.xpm"
+# define FLOOR "./set/floor_1.xpm"
+# define DOOR "./set/door_fullyopen.xpm"
+# define ITEM "./set/bag_coins.xpm"
+# define CHAR "./set/knight.xpm"
+
 typedef struct s_data {
 	void	*img;
 	char	*addr;
