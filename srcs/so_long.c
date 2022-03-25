@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:26 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/24 19:31:49 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/25 23:18:40 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,7 @@ int	main(void)
 	vars.mlx_win = mlx_new_window(vars.mlx, pos.x * SQUARE, pos.y * SQUARE, "so_long");
 	vars.img = mlx_new_image(vars.mlx_win, pos.x * SQUARE, pos.y * SQUARE);
 	vars.addr = mlx_get_data_addr(vars.img, &vars.bits_per_pixel, &vars.line_length, &vars.endian);
-	// ft_mlx_pixel_put(vars.img, 100, 100, 0xFFFFF);
-	vars.img = mlx_xpm_file_to_image(vars.mlx, "wall_2.xpm", &img_width, &img_height);
-	int wid = 0;
-	int	heo = 0;
-	while (wid < pos.x)
-	{
-		mlx_put_image_to_window(vars.mlx, vars.mlx_win, vars.img, wid * SQUARE, 0);
-		wid ++;
-	}
+	ft_draw_map(vars, pos);
 	ft_free_map(&pos);
 	mlx_key_hook(vars.mlx_win, ft_key_hook, &vars);
 	mlx_loop(vars.mlx);

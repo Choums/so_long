@@ -64,6 +64,7 @@ typedef struct s_char {
 
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	ft_draw_square(t_data img, int color);
+void	ft_draw_map(t_data img, t_map pos);
 int		ft_key_hook(int keycode, t_data *vars);
 int		ft_close(int keycode, t_data *var);
 

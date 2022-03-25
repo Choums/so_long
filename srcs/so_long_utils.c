@@ -34,7 +34,7 @@ int	ft_key_hook(int keycode, t_data *vars)
 	if (keycode == 53)
 		ft_close(keycode, vars);
 	// if (keycode == 13)
-	// 	ft_advance();
+	// 	ft_up();
 	// else if (keycode == 0)
 	// 	ft_left();
 	// else if (keycode == 1)
