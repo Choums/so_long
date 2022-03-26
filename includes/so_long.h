@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/26 14:54:56 by root             ###   ########.fr       */
+/*   Updated: 2022/03/26 20:44:03 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "../libft/libft.h"
-# include "../srcs/get_next_line/get_next_line.h"
+# include "../srcs/get_next_line.h"
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -65,7 +65,7 @@ typedef struct s_char {
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	ft_draw_map(t_data img, t_map *pos);
 int		ft_key_hook(int keycode, t_data vars, t_map *map, t_char *chara);
-int		ft_close(int keycode, t_data *var);
+int		ft_close(t_data *var);
 
 void	ft_err(char *msg);
 
@@ -73,7 +73,7 @@ void	ft_get_map(int map_fd, t_map *pos);
 int		ft_check_map(t_map *pos, t_char *chara);
 void	ft_free_map(t_map *pos);
 
-t_char	*ft_init_char(size_t x, size_t y);
+void	ft_init_char(size_t x, size_t y, t_char *chara);
 
 void	ft_up(t_map *pos, t_char *chara);
 void	ft_bot(t_map *pos, t_char *chara);

@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:26 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/26 14:55:03 by root             ###   ########.fr       */
+/*   Updated: 2022/03/26 20:46:49 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 	int		map_fd;
 	t_map	pos;
 	t_data	vars;
-	t_char	*chara;
+	t_char	chara;
 
 	vars.mlx = mlx_init();
 	map_fd = open("map.ber", O_RDONLY);

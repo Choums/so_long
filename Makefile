@@ -1,43 +1,70 @@
-SRCS		=	srcs/so_long.c\
-				srcs/so_long_utils.c\
-				srcs/window_management.c\
-				srcs/map_checker.c\
-				srcs/get_next_line/get_next_line.c\
-				srcs/get_next_line/get_next_line_utils.c
+NAME    = so_long
+OS        = $(shell uname)
 
-OBJS		=	${SRCS:.c=.o}
+# directories
+SRCDIR			= ./srcs
+INCDIR			= ./includes
+OBJDIR			= obj
 
-NAME		=	so_long
+# src / obj files
+SRC			= 	map_checker.c\
+				so_long.c\
+				so_long_utils.c\
+				window_management.c\
+				mouvement.c\
+				get_next_line.c\
+				get_next_line_utils.c
 
-LIB			=	./libft/libft.a
+#          $(addprefix fractals/,$(shell ls $(SRCDIR)/fractals | grep -E ".+\.c"))
 
-CC			=	clang
+OBJ				= $(addprefix $(OBJDIR)/,$(SRC:.c=.o))
 
-CFLAGS		=	-fsanitize=address -g #-Wall -Wextra -Werror
+# compiler
+CC				= gcc
+CFLAGS			= -Wall -Wextra -Werror -fsanitize=address -g
 
-.c.o:			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+# mlx library
+ifeq ($(OS), Linux)
+    MLX        = ./miniLibX_X11/
+    MLX_LNK    = -L $(MLX) -l mlx -lXext -lX11
+else
+    MLX        = ./miniLibX/
+    MLX_LNK    = -L $(MLX) -l mlx -framework OpenGL -framework AppKit
+endif
 
-%.o: 			%.c
-				$(CC) ${CFLAGS} -I/usr/include -Imlx_linux -O3 -c $< -o $@
+MLX_INC		= -I $(MLX)
+MLX_LIB		= $(addprefix $(MLX),mlx.a)
 
-RM			=	rm -f
+# ft library
+FT			=	./libft/
+FT_LIB		=	$(addprefix $(FT),libft.a)
+FT_INC		=	-I ./libft
+FT_LNK		=	-L ./libft -l ft -l pthread
 
-FRAME		=	-lmlx -framework OpenGL -framework AppKit
+all:			obj $(FT_LIB) $(MLX_LIB) $(NAME)
 
-${NAME}:		${OBJS}
-				${MAKE} -C ./libft
-				$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+obj:
+				mkdir -p $(OBJDIR)
 
-all:			${NAME}
+$(OBJDIR)/%.o:	$(SRCDIR)/%.c
+				$(CC) $(CFLAGS) $(MLX_INC) $(FT_INC) -I $(INCDIR) -o $@ -c $<
+
+$(FT_LIB):
+				@make -C $(FT)
+
+$(MLX_LIB):
+				@make -C $(MLX)
+
+$(NAME):		$(OBJ)
+				$(CC) $(CFLAGS) $(OBJ) $(MLX_LNK) $(FT_LNK) -lm -o $(NAME)
 
 clean:
-				${RM} ${OBJS}
-				${MAKE} clean -C ./libft
+				rm -rf $(OBJDIR)
+				make -C $(FT) clean
+				make -C $(MLX) clean
 
 fclean:			clean
-				${RM} ${NAME}
-				${MAKE} fclean -C ./libft
+				rm -rf $(NAME)
+				make -C $(FT) fclean
 
-re:				fclean all
-
-.PHONY:			all clean fclean re
+re: fclean all

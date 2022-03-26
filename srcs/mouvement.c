@@ -6,21 +6,20 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 19:25:22 by root              #+#    #+#             */
-/*   Updated: 2022/03/26 15:14:45 by root             ###   ########.fr       */
+/*   Updated: 2022/03/26 20:43:54 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/so_long.h"
 
-t_char	*ft_init_char(size_t x, size_t y)
+void	ft_init_char(size_t x, size_t y, t_char *chara)
 {
-	t_pos	*pos;
-	t_char	chara;
+	t_pos	pos;
 
-	pos->x = x;
-	pos->y = y;
-	chara.item = 0;
-	chara.pos = &pos;
+	pos.x = x;
+	pos.y = y;
+	chara->item = 0;
+	chara->pos = &pos;
 }
 
 void	ft_up(t_map *pos, t_char *chara)

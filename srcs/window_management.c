@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:50:05 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/26 14:58:45 by root             ###   ########.fr       */
+/*   Updated: 2022/03/26 20:43:28 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	ft_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 void	ft_draw_map(t_data img, t_map *pos)
 {
-	int	img_width;
-	int	img_height;
-	int	wid;
-	int	hei;
+	int		img_width;
+	int		img_height;
+	size_t	wid;
+	size_t	hei;
 
 	hei = 0;
 	while (hei < pos->y)
