@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:26 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/27 16:12:08 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/27 20:23:25 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,5 @@ int	main(void)
 	ft_draw_map(vars, &pos);
 	mlx_key_hook(vars.mlx_win, ft_key_hook, &vars);
 	mlx_loop(vars.mlx);
-	ft_free_map(&pos);
 	exit(EXIT_SUCCESS);
 }
