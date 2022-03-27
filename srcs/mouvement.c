@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouvement.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 19:25:22 by root              #+#    #+#             */
-/*   Updated: 2022/03/26 20:43:54 by root             ###   ########.fr       */
+/*   Updated: 2022/03/27 16:12:38 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	ft_bot(t_map *pos, t_char *chara)
 {
 	if (pos->map[chara->pos->y + 1][chara->pos->x] == '0')
 	{
+		printf("move up\n");
 		pos->map[chara->pos->y][chara->pos->x] = '0';
 		chara->pos->y++;
 		pos->map[chara->pos->y + 1][chara->pos->x] = 'P';
@@ -76,7 +77,7 @@ void	ft_bot(t_map *pos, t_char *chara)
 
 void	ft_left(t_map *pos, t_char *chara)
 {
-	if (pos->map[chara->pos->y][chara->pos->x - 1] == '0')
+	if (pos->map[2][10] == '0')
 	{
 		pos->map[chara->pos->y][chara->pos->x] = '0';
 		chara->pos->x--;

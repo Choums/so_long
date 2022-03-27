@@ -41,27 +41,26 @@ FT_LIB		=	$(addprefix $(FT),libft.a)
 FT_INC		=	-I ./libft
 FT_LNK		=	-L ./libft -l ft -l pthread
 
-all:			obj $(FT_LIB) $(MLX_LIB) $(NAME)
+all:			obj $(FT_LIB) $(NAME)
 
 obj:
 				mkdir -p $(OBJDIR)
 
 $(OBJDIR)/%.o:	$(SRCDIR)/%.c
-				$(CC) $(CFLAGS) $(MLX_INC) $(FT_INC) -I $(INCDIR) -o $@ -c $<
+				$(CC) $(CFLAGS) -Imlx $(FT_INC) -I $(INCDIR) -o $@ -c $<
 
 $(FT_LIB):
 				@make -C $(FT)
 
-$(MLX_LIB):
-				@make -C $(MLX)
+# $(MLX_LIB):
+# 				@make -C $(MLX)
 
 $(NAME):		$(OBJ)
-				$(CC) $(CFLAGS) $(OBJ) $(MLX_LNK) $(FT_LNK) -lm -o $(NAME)
+				$(CC) $(CFLAGS) $(OBJ) -lmlx -framework OpenGL -framework AppKit $(FT_LNK) -lm -o $(NAME)
 
 clean:
 				rm -rf $(OBJDIR)
 				make -C $(FT) clean
-				make -C $(MLX) clean
 
 fclean:			clean
 				rm -rf $(NAME)

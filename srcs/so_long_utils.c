@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:29 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/26 20:42:44 by root             ###   ########.fr       */
+/*   Updated: 2022/03/27 16:16:10 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	ft_key_hook(int keycode, t_data vars, t_map *map, t_char *chara)
 {
+	printf("%c\n", map->map[2][11]);
 	if (keycode == 53)
 		ft_close(&vars);
 	if (keycode == 13)
@@ -24,7 +25,7 @@ int	ft_key_hook(int keycode, t_data vars, t_map *map, t_char *chara)
 		ft_bot(map, chara);
 	else if (keycode == 2)
 		ft_right(map, chara);
-	ft_draw_map(vars, map);
+	// ft_draw_map(vars, map);
 	return (0);
 }
 
