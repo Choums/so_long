@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:26 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/28 17:55:36 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/28 18:12:29 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,4 @@ int	main(void)
 	// printf("pos x: %zu\npos y: %zu\nitem: %d\n", vars.chara.pos.x, vars.chara.pos.y, vars.chara.item);
 	mlx_key_hook(vars.mlx_win, ft_key_hook, &vars);
 	mlx_loop(vars.mlx);
-	exit(EXIT_SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:29 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/28 18:03:19 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/28 18:16:51 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,11 @@ int	ft_key_hook(int keycode, t_data *vars)
 	return (0);
 }
 
-int	ft_close(t_data *vars)
+void	ft_close(t_data *vars)
 {
-	return (mlx_destroy_window(vars->mlx, vars->mlx_win));
+	ft_free_map(vars);
+	mlx_destroy_window(vars->mlx, vars->mlx_win);
+	exit(EXIT_SUCCESS);
 }
 
 void	ft_err(char *msg)

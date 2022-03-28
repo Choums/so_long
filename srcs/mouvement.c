@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 19:25:22 by root              #+#    #+#             */
-/*   Updated: 2022/03/28 18:07:05 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/28 18:13:05 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_up(t_data *vars)
 	else if (vars->pos.map[vars->chara.pos.y - 1][vars->chara.pos.x] == 'E')
 	{
 		if (vars->chara.item == vars->pos.cons)
-			exit(EXIT_FAILURE);
+			ft_close(vars);
 		else
 			return ;
 	}
@@ -79,7 +79,7 @@ void	ft_bot(t_data *vars)
 	else if (vars->pos.map[vars->chara.pos.y + 1][vars->chara.pos.x] == 'E')
 	{
 		if (vars->chara.item == vars->pos.cons)
-			exit(EXIT_FAILURE);
+			ft_close(vars);
 		else
 			return ;
 	}
@@ -111,10 +111,7 @@ void	ft_left(t_data *vars)
 	else if (vars->pos.map[vars->chara.pos.y][vars->chara.pos.x - 1] == 'E')
 	{
 		if (vars->chara.item == vars->pos.cons)
-		{
-			ft_free_map(vars);
-			exit(EXIT_FAILURE);
-		}
+			ft_close(vars);
 		else
 			return ;
 	}
@@ -146,7 +143,7 @@ void	ft_right(t_data *vars)
 	else if (vars->pos.map[vars->chara.pos.y][vars->chara.pos.x + 1] == 'E')
 	{
 		if (vars->chara.item == vars->pos.cons)
-			exit(EXIT_FAILURE);
+			ft_close(vars);
 		else
 			return ;
 	}

@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/28 17:43:59 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/28 18:12:25 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ typedef struct s_data {
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	ft_draw_map(t_data img);
 int		ft_key_hook(int keycode, t_data *vars);
-int		ft_close(t_data *var);
+void	ft_close(t_data *var);
 
 void	ft_err(char *msg);
 
