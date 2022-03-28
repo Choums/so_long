@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 18:20:11 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/26 20:19:25 by root             ###   ########.fr       */
+/*   Updated: 2022/03/28 17:55:40 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	ft_get_map(int map_fd, t_map *pos)
+void	ft_get_map(int map_fd, t_data *vars)
 {
 	char	*line;
 	char	*map;
 
 	line = "\0";
 	map = "\0";
-	pos->y = 1;
+	vars->pos.y = 1;
 	line = get_next_line(map_fd);
 	map = ft_strjoin(map, line);
 	while (line)
@@ -29,62 +29,64 @@ void	ft_get_map(int map_fd, t_map *pos)
 		if (!line)
 			break;
 		map = ft_join(map, line);
-		pos->y++;
+		vars->pos.y++;
 	}
-	pos->map = ft_split(map, '\n');
+	vars->pos.map = ft_split(map, '\n');
 	free(map);
 	free(line);
 }
 
-int	ft_check_map(t_map *pos, t_char *chara)
+int	ft_check_map(t_data *vars)
 {
 	size_t	y;
 	size_t	x;
 	int		E;
 	int		P;
 
-	pos->cons = 0;
-	if (pos->x <= pos->y)
+	vars->pos.cons = 0;
+	if (vars->pos.x <= vars->pos.y)
 		return (0);
 	y = 0;
 	E = 0;
 	P = 0;
-	while (y <= pos->y)
+	while (y <= vars->pos.y)
 	{
 		x = -1;
-		while (++x <= pos->x - 1 && (y == 0 || y == pos->y - 1)) // Check la 1er et derniere ligne, que des 1
-			if (pos->map[y][x] != '1')
+		while (++x <= vars->pos.x - 1 && (y == 0 || y == vars->pos.y - 1)) // Check la 1er et derniere ligne, que des 1
+			if (vars->pos.map[y][x] != '1')
 				return (0);
 		x = -1;
-		while (++x <= pos->x && (y > 0 && y < pos->y - 1)) // Entre la 1ere et derniere ligne
+		while (++x <= vars->pos.x && (y > 0 && y < vars->pos.y - 1)) // Entre la 1ere et derniere ligne
 		{
-			if (pos->map[y][0] != '1' || pos->map[y][pos->x - 1] != '1') // Check bordure
+			if (vars->pos.map[y][0] != '1' || vars->pos.map[y][vars->pos.x - 1] != '1') // Check bordure
 				return (0);
-			if (pos->map[y][x] == 'E')
+			if (vars->pos.map[y][x] == 'E')
 				E++;
-			if (pos->map[y][x] == 'C')
-				pos->cons++;
-			if (pos->map[y][x] == 'P')
+			if (vars->pos.map[y][x] == 'C')
+				vars->pos.cons++;
+			if (vars->pos.map[y][x] == 'P')
 			{
-				ft_init_char(x, y, chara);
+				ft_init_char(x, y, vars);
+				// printf("---chara debug, init---\n");
+				// printf("pos x: %zu\npos y: %zu\nitem: %d", vars->chara.pos.x, vars->chara.pos.y, vars->chara.item);
 				P++;
 			}
 		}
 		y++;
 	}
-	if (E != 1 || P != 1 || !pos->cons)
+	if (E != 1 || P != 1 || !vars->pos.cons)
 		return (0);
 	return (1);
 }
 
-void	ft_free_map(t_map *pos)
+void	ft_free_map(t_data *vars)
 {
 	size_t	i;
 
 	i = 0;
-	while (pos->map[i])
+	while (vars->pos.map[i])
 		i++;
 	while (i--)
-		free(pos->map[i]);
-	free(pos->map);
+		free(vars->pos.map[i]);
+	free(vars->pos.map);
 }

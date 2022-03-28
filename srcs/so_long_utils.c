@@ -6,25 +6,37 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:29 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/28 15:42:04 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/28 17:56:14 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	ft_key_hook(int keycode, t_data vars, t_map *map, t_char *chara)
+int	ft_key_hook(int keycode, t_data *vars)
 {
+	int i = 0;
+	while (i < 4)
+	{
+		int j = 0;
+		while (j < 13)
+		{
+			printf("%c", vars->pos.map[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
 	if (keycode == 53)
-		ft_close(&vars);
+		ft_close(vars);
 	else if (keycode == 13)
-		ft_up(map, chara);
+		ft_up(vars);
 	else if (keycode == 0)
-		ft_left(map, chara);
+		ft_left(vars);
 	else if (keycode == 1)
-		ft_bot(map, chara);
+		ft_bot(vars);
 	else if (keycode == 2)
-		ft_right(map, chara);
-	ft_draw_map(vars, map);
+		ft_right(vars);
+	ft_draw_map((*vars));
 	return (0);
 }
 

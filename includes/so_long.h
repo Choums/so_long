@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/28 15:38:16 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/28 17:43:59 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,6 @@
 # define ITEM "./set/bag_coins.xpm"
 # define KNIGHT "./set/knight.xpm"
 
-typedef struct s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	void	*mlx;
-	void	*mlx_win;
-}	t_data;
-
-typedef struct s_map {
-	size_t	x;
-	size_t	y;
-	int		cons;
-	char	**map;
-}	t_map;
-
 typedef struct s_pos {
 	size_t	x;
 	size_t	y;
@@ -62,22 +45,42 @@ typedef struct s_char {
 	int		item;
 }	t_char;
 
+typedef struct s_map {
+	size_t	x;
+	size_t	y;
+	int		cons;
+	char	**map;
+}	t_map;
+
+typedef struct s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	void	*mlx;
+	void	*mlx_win;
+	t_map	pos;
+	t_char	chara;
+}	t_data;
+
+
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	ft_draw_map(t_data img, t_map *pos);
-int		ft_key_hook(int keycode, t_data vars, t_map *map, t_char *chara);
+void	ft_draw_map(t_data img);
+int		ft_key_hook(int keycode, t_data *vars);
 int		ft_close(t_data *var);
 
 void	ft_err(char *msg);
 
-void	ft_get_map(int map_fd, t_map *pos);
-int		ft_check_map(t_map *pos, t_char *chara);
-void	ft_free_map(t_map *pos);
+void	ft_get_map(int map_fd, t_data *vars);
+int		ft_check_map(t_data *vars);
+void	ft_free_map(t_data *vars);
 
-void	ft_init_char(size_t x, size_t y, t_char *chara);
+void	ft_init_char(size_t x, size_t y, t_data *vars);
 
-void	ft_up(t_map *pos, t_char *chara);
-void	ft_bot(t_map *pos, t_char *chara);
-void	ft_left(t_map *pos, t_char *chara);
-void	ft_right(t_map *pos, t_char *chara);
+void	ft_up(t_data *vars);
+void	ft_bot(t_data *vars);
+void	ft_left(t_data *vars);
+void	ft_right(t_data *vars);
 
 #endif
