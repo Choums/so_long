@@ -28,7 +28,7 @@ ifeq ($(OS), Linux)
     MLX_LNK    = -L $(MLX) -l mlx -lXext -lX11
 else
     MLX        = ./miniLibX/
-    MLX_LNK    = -L $(MLX) -l mlx -framework OpenGL -framework AppKit
+    MLX_LNK    = -L -l mlx -framework OpenGL -framework AppKit
 endif
 
 MLX_INC		= -I $(MLX)
@@ -40,7 +40,7 @@ FT_LIB		=	$(addprefix $(FT),libft.a)
 FT_INC		=	-I ./libft
 FT_LNK		=	-L ./libft -l ft -l pthread
 
-all:			obj $(FT_LIB) $(MLX_LIB) $(NAME)
+all:			obj $(FT_LIB) $(NAME)
 
 obj:
 				mkdir -p $(OBJDIR)
@@ -55,12 +55,11 @@ $(MLX_LIB):
 				@make -C $(MLX)
 
 $(NAME):		$(OBJ)
-				$(CC) $(OBJ) $(MLX_LNK) $(FT_LNK) -lm -o $(NAME)
+				$(CC) $(CFLAGS) $(OBJ) -lmlx -framework OpenGL -framework AppKit $(FT_LNK) -lm -o $(NAME)
 
 clean:
 				rm -rf $(OBJDIR)
 				make -C $(FT) clean
-				make -C $(MLX) clean
 
 fclean:			clean
 				rm -rf $(NAME)

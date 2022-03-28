@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:29 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/27 16:16:10 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/28 15:42:04 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 int	ft_key_hook(int keycode, t_data vars, t_map *map, t_char *chara)
 {
-	printf("%c\n", map->map[2][11]);
 	if (keycode == 53)
 		ft_close(&vars);
-	if (keycode == 13)
+	else if (keycode == 13)
 		ft_up(map, chara);
 	else if (keycode == 0)
 		ft_left(map, chara);
@@ -25,7 +24,7 @@ int	ft_key_hook(int keycode, t_data vars, t_map *map, t_char *chara)
 		ft_bot(map, chara);
 	else if (keycode == 2)
 		ft_right(map, chara);
-	// ft_draw_map(vars, map);
+	ft_draw_map(vars, map);
 	return (0);
 }
 
