@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/28 18:12:25 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/29 15:22:52 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 # define SQUARE 64
 
 # define WALL "./set/wall_2.xpm"
-# define FLOOR "./set/floor_1.xpm"
-# define DOOR "./set/door_fullyopen.xpm"
+# define FLOOR "./set/floor_10.xpm"
+# define DOOR "./set/door_closed.xpm"
 # define ITEM "./set/bag_coins.xpm"
 # define KNIGHT "./set/knight.xpm"
 

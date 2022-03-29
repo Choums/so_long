@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:29 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/28 18:16:51 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/29 14:02:24 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_close(t_data *vars)
 {
 	ft_free_map(vars);
 	mlx_destroy_window(vars->mlx, vars->mlx_win);
-	exit(EXIT_SUCCESS);
+	mlx_loop_end(vars->mlx);
 }
 
 void	ft_err(char *msg)
