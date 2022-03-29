@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/29 15:22:52 by root             ###   ########.fr       */
+/*   Updated: 2022/03/29 19:49:25 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_pos {
 typedef struct s_char {
 	t_pos	pos;
 	int		item;
+	int		mv;
 }	t_char;
 
 typedef struct s_map {
@@ -68,6 +69,7 @@ typedef struct s_data {
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	ft_draw_map(t_data img);
 int		ft_key_hook(int keycode, t_data *vars);
+void	ft_print(t_data *vars);
 void	ft_close(t_data *var);
 
 void	ft_err(char *msg);

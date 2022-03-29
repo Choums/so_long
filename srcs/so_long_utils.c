@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:29 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/29 14:02:24 by root             ###   ########.fr       */
+/*   Updated: 2022/03/29 19:48:15 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ int	ft_key_hook(int keycode, t_data *vars)
 		ft_right(vars);
 	ft_draw_map((*vars));
 	return (0);
+}
+
+void	ft_print(t_data *vars)
+{
+	vars->chara.mv++;
+	ft_putnbr_fd(vars->chara.mv++, STDIN_FILENO);
 }
 
 void	ft_close(t_data *vars)
