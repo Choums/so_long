@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:29 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/29 19:48:15 by root             ###   ########.fr       */
+/*   Updated: 2022/03/30 18:13:08 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,6 @@
 
 int	ft_key_hook(int keycode, t_data *vars)
 {
-	int i = 0;
-	printf("\n");
-	while (i < 4)
-	{
-		int j = 0;
-		while (j < 13)
-		{
-			printf("%c", vars->pos.map[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
 	if (keycode == 53)
 		ft_close(vars);
 	else if (keycode == 13)
@@ -43,15 +30,15 @@ int	ft_key_hook(int keycode, t_data *vars)
 
 void	ft_print(t_data *vars)
 {
-	vars->chara.mv++;
 	ft_putnbr_fd(vars->chara.mv++, STDIN_FILENO);
+	ft_putchar_fd('\n', STDIN_FILENO);
 }
 
-void	ft_close(t_data *vars)
+int	ft_close(t_data *vars)
 {
 	ft_free_map(vars);
 	mlx_destroy_window(vars->mlx, vars->mlx_win);
-	mlx_loop_end(vars->mlx);
+	exit(EXIT_SUCCESS);
 }
 
 void	ft_err(char *msg)

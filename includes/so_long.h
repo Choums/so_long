@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/29 19:49:25 by root             ###   ########.fr       */
+/*   Updated: 2022/03/30 18:13:19 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,6 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <mlx.h>
-
-# define MLX_SYNC_IMAGE_WRITABLE	1
-# define MLX_SYNC_WIN_FLUSH_CMD		2
-# define MLX_SYNC_WIN_CMD_COMPLETED	3
 
 # define WIDTH	1920
 # define HEIGHT	1080
@@ -70,7 +66,7 @@ void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	ft_draw_map(t_data img);
 int		ft_key_hook(int keycode, t_data *vars);
 void	ft_print(t_data *vars);
-void	ft_close(t_data *var);
+int		ft_close(t_data *var);
 
 void	ft_err(char *msg);
 

@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 18:20:11 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/28 17:55:40 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/30 18:43:50 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,12 @@ int	ft_check_map(t_data *vars)
 	while (y <= vars->pos.y)
 	{
 		x = -1;
-		while (++x <= vars->pos.x - 1 && (y == 0 || y == vars->pos.y - 1)) // Check la 1er et derniere ligne, que des 1
+		while (++x <= vars->pos.x - 1 && (y == 0 || y == vars->pos.y - 1))
 			if (vars->pos.map[y][x] != '1')
 				return (0);
-		x = -1;
-		while (++x <= vars->pos.x && (y > 0 && y < vars->pos.y - 1)) // Entre la 1ere et derniere ligne
+		while (++x <= vars->pos.x && (y > 0 && y < vars->pos.y - 1))
 		{
-			if (vars->pos.map[y][0] != '1' || vars->pos.map[y][vars->pos.x - 1] != '1') // Check bordure
+			if (vars->pos.map[y][0] != '1' || vars->pos.map[y][vars->pos.x - 1] != '1')
 				return (0);
 			if (vars->pos.map[y][x] == 'E')
 				E++;
@@ -67,8 +66,6 @@ int	ft_check_map(t_data *vars)
 			if (vars->pos.map[y][x] == 'P')
 			{
 				ft_init_char(x, y, vars);
-				// printf("---chara debug, init---\n");
-				// printf("pos x: %zu\npos y: %zu\nitem: %d", vars->chara.pos.x, vars->chara.pos.y, vars->chara.item);
 				P++;
 			}
 		}
