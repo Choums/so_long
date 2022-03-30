@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/30 18:13:19 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/03/30 23:07:17 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 # include <stdio.h>
 # include <mlx.h>
 
-# define WIDTH	1920
-# define HEIGHT	1080
 # define SQUARE 64
 
 # define WALL "./set/wall_2.xpm"
@@ -72,6 +70,7 @@ void	ft_err(char *msg);
 
 void	ft_get_map(int map_fd, t_data *vars);
 int		ft_check_map(t_data *vars);
+int		ft_check_in(t_data *vars, size_t y);
 void	ft_free_map(t_data *vars);
 
 void	ft_init_char(size_t x, size_t y, t_data *vars);
