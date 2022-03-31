@@ -6,7 +6,7 @@
 /*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 18:20:11 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/30 23:13:39 by root             ###   ########.fr       */
+/*   Updated: 2022/03/31 21:11:49 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,23 +55,35 @@ int	ft_check_map(t_data *vars)
 		while (++x <= vars->pos.x - 1 && (y == 0 || y == vars->pos.y - 1))
 			if (vars->pos.map[y][x] != '1')
 				return (0);
-		while (++x <= vars->pos.x && (y > 0 && y < vars->pos.y - 1))
-		{
-			if (vars->pos.map[y][0] != '1' || vars->pos.map[y][vars->pos.x - 1] != '1')
-				return (0);
-			if (vars->pos.map[y][x] == 'E')
-				E++;
-			if (vars->pos.map[y][x] == 'C')
-				vars->pos.cons++;
-			if (vars->pos.map[y][x] == 'P')
-			{
-				ft_init_char(x, y, vars);
-				P++;
-			}
-		}
+		if (!ft_check_mapi(vars, y, &E, &P))
+			return (0);
 		y++;
 	}
 	if (E != 1 || P != 1 || !vars->pos.cons)
+		return (0);
+	return (1);
+}
+
+int	ft_check_mapi(t_data *vars, size_t y, int *E, int P)
+{
+	size_t	x;
+
+	x = -1;
+	while (++x <= vars->pos.x && (y > 0 && y < vars->pos.y - 1))
+	{
+		if (vars->pos.map[y][0] != '1' || vars->pos.map[y][vars->pos.x - 1] != '1')
+			return (0);
+		if (vars->pos.map[y][x] == 'E')
+			E++;
+		if (vars->pos.map[y][x] == 'C')
+			vars->pos.cons++;
+		if (vars->pos.map[y][x] == 'P')
+		{
+			ft_init_char(x, y, vars);
+			P++;
+		}
+	}
+	if (x > vars->pos.x)
 		return (0);
 	return (1);
 }
