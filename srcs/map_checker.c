@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 18:20:11 by chaidel           #+#    #+#             */
-/*   Updated: 2022/04/01 10:43:01 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/04/01 11:15:13 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_check_map(t_data *vars)
 		while (++x <= vars->pos.x - 1 && (y == 0 || y == vars->pos.y - 1))
 			if (vars->pos.map[y][x] != '1')
 				return (0);
-		if (!ft_check_mapi(vars, y, &ex, &pl) && ft_lim(vars, y))
+		if (!ft_check_mapi(vars, y, &ex, &pl) || !ft_lim(vars, y))
 			return (0);
 		y++;
 	}
@@ -91,12 +91,11 @@ int	ft_lim(t_data *vars, size_t y)
 {
 	size_t	len;
 
+	if (y == vars->pos.y)
+		return (1);
 	len = ft_strlen(vars->pos.map[y]);
-	if (len != ft_strlen(vars->pos.map[y + 1]) && y <= vars->pos.y - 1)
-	{
-		printf("lim\n");
+	if (y < vars->pos.y - 1 && len != ft_strlen(vars->pos.map[y + 1]))
 		return (0);
-	}
 	return (1);
 }
 
