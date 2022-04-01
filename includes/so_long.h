@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/04/01 11:17:50 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/04/01 11:19:42 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SO_LONG_H
 
 # include "../libft/libft.h"
-# include "../srcs/get_next_line.h"
+# include "get_next_line.h"
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
