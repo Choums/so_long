@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/31 21:08:47 by root             ###   ########.fr       */
+/*   Updated: 2022/04/01 10:39:01 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ typedef struct s_data {
 	t_char	chara;
 }	t_data;
 
-
 void	ft_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	ft_draw_map(t_data img);
 int		ft_key_hook(int keycode, t_data *vars);
@@ -71,7 +70,8 @@ void	ft_err(char *msg);
 void	ft_get_map(int map_fd, t_data *vars);
 int		ft_check_map(t_data *vars);
 int		ft_check_in(t_data *vars, size_t y);
-int		ft_check_mapi(t_data *vars, size_t y, int *E, int P);
+int		ft_check_mapi(t_data *vars, size_t y, int *ex, int *pl);
+int		ft_lim(t_data *vars, size_t y);
 void	ft_free_map(t_data *vars);
 
 void	ft_init_char(size_t x, size_t y, t_data *vars);
