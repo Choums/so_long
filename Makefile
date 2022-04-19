@@ -13,10 +13,10 @@ SRC			= 	map_checker.c\
 				get_next_line_utils.c
 
 
-OBJ				= $(addprefix $(OBJDIR)/,$(SRC:.c=.o))
+OBJ			=	$(addprefix $(OBJDIR)/,$(SRC:.c=.o))
 
-CC				= gcc
-CFLAGS			= -Wall -Wextra -Werror -g
+CC			=	gcc
+CFLAGS		=	-Wall -Wextra -Werror
 
 FT			=	./libft/
 FT_LIB		=	$(addprefix $(FT),libft.a)
