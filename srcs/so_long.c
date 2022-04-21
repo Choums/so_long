@@ -3,16 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:26 by chaidel           #+#    #+#             */
-/*   Updated: 2022/03/30 18:34:19 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/04/21 19:03:36 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int	main(void)
+int	ft_check_nl(t_data *vars)
+{
+	int	i;
+
+	i = 0;
+	while (vars->pos.map[i])
+		i++;
+	if (i != vars->pos.y)
+		return (0);
+	return (1);
+}
+
+int	main(int ac, char **av)
 {
 	int		map_fd;
 	t_data	vars;
@@ -20,7 +32,9 @@ int	main(void)
 	vars.mlx = mlx_init();
 	if (!vars.mlx)
 		ft_err("mlx");
-	map_fd = open("map.ber", O_RDONLY);
+	if (ac != 2 || !av[1] || !ft_strnstr(av[1], ".ber", ft_strlen(av[1])))
+		ft_err("Invalid Argument");
+	map_fd = open(av[1], O_RDONLY);
 	if (!map_fd)
 		ft_err("Open");
 	ft_get_map(map_fd, &vars);
