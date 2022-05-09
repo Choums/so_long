@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/04/01 11:19:42 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/05/09 17:31:11 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 # include "../libft/libft.h"
 # include "get_next_line.h"
+# include "../mlx_linux/mlx.h"
 # include <fcntl.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include <mlx.h>
-
+# include <stdio.h> //a supp
 # define SQUARE 64
 
 # define WALL "./set/wall_2.xpm"
