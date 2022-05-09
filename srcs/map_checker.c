@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_checker.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: root <root@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 18:20:11 by chaidel           #+#    #+#             */
-/*   Updated: 2022/04/01 11:15:13 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/04/21 19:05:19 by root             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	ft_check_map(t_data *vars)
 	int		pl;
 
 	vars->pos.cons = 0;
-	if (vars->pos.x <= vars->pos.y)
+	if (vars->pos.x <= vars->pos.y || !ft_check_nl(vars))
 		return (0);
 	y = 0;
 	ex = 0;

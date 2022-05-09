@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/05/09 17:31:11 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/05/09 17:50:46 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int		ft_close(t_data *var);
 void	ft_err(char *msg);
 
 void	ft_get_map(int map_fd, t_data *vars);
+int		ft_check_nl(t_data *vars);
 int		ft_check_map(t_data *vars);
 int		ft_check_in(t_data *vars, size_t y);
 int		ft_check_mapi(t_data *vars, size_t y, int *ex, int *pl);
