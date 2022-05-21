@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:31 by chaidel           #+#    #+#             */
-/*   Updated: 2022/05/09 17:50:46 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/05/21 15:10:12 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,14 @@ typedef struct s_map {
 	int		cons;
 	char	**map;
 }	t_map;
+
+typedef struct s_img {
+	void	*wall;
+	void	*floor;
+	void	*door;
+	void	*item;
+	void	*knight;
+}	t_img;
 
 typedef struct s_data {
 	void	*img;

@@ -16,7 +16,7 @@ SRC			= 	map_checker.c\
 OBJ			=	$(addprefix $(OBJDIR)/,$(SRC:.c=.o))
 
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror -g #-fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror -g -fsanitize=address
 
 FT			=	./libft/
 FT_LIB		=	$(addprefix $(FT),libft.a)

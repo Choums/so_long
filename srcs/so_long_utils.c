@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:29 by chaidel           #+#    #+#             */
-/*   Updated: 2022/05/09 17:50:53 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/05/21 15:02:43 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_key_hook(int keycode, t_data *vars)
 {
-	printf("%d\n", keycode);
 	if (keycode == 65307)
 		ft_close(vars);
 	else if (keycode == 119)
@@ -38,6 +37,7 @@ void	ft_print(t_data *vars)
 int	ft_close(t_data *vars)
 {
 	ft_free_map(vars);
+	mlx_destroy_image(vars->mlx, vars->img);
 	mlx_destroy_window(vars->mlx, vars->mlx_win);
 	free(vars->mlx);
 	exit(EXIT_SUCCESS);
