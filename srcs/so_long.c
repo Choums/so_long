@@ -6,7 +6,7 @@
 /*   By: chaidel <chaidel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 11:28:26 by chaidel           #+#    #+#             */
-/*   Updated: 2022/05/21 14:53:17 by chaidel          ###   ########.fr       */
+/*   Updated: 2022/05/21 17:00:22 by chaidel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,11 @@ int	main(int ac, char **av)
 	vars.pos.x = ft_strlen(vars.pos.map[0]);
 	if (!ft_check_map(&vars))
 		ft_err("Invalid map");
-	vars.mlx_win = mlx_new_window(vars.mlx, vars.pos.x * SQUARE,
+	vars.win = mlx_new_window(vars.mlx, vars.pos.x * SQUARE,
 			vars.pos.y * SQUARE, "so_long");
-	ft_draw_map(vars);
-	mlx_hook(vars.mlx_win, 17, 1L << 0, ft_close, &vars);
-	mlx_key_hook(vars.mlx_win, ft_key_hook, &vars);
+	ft_init_img(&vars);
+	ft_draw_map(&vars);
+	mlx_hook(vars.win, 17, 1L << 0, ft_close, &vars);
+	mlx_key_hook(vars.win, ft_key_hook, &vars);
 	mlx_loop(vars.mlx);
 }
